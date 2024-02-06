@@ -1,0 +1,96 @@
+plugins {
+    id 'war'
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+// Configuraci?n de compilaci?n y ejecuci?n
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Dependencias del proyecto
+dependencies {
+    // A?ade las dependencias que necesites desde la carpeta 'webcontent/lib'
+    implementation fileTree(dir: 'webcontent/WEB-INF/lib', include: ['*.jar'])
+    //implementation fileTree(dir: 'webcontent/WEB-INF', include: ['*.xml'])
+    //implementation 'javax.servlet:javax.servlet-api:3.1.0'
+    implementation 'javax.xml.rpc:javax.xml.rpc-api:1.1.2'
+    // A?ade otras dependencias aqu?
+}
+// Ruta de las clases Java a compilar
+sourceSets {
+    main {
+        java {
+            srcDirs 'src'
+        }
+    }
+}
+
+// Tareas de compilaci?n y empaquetado
+tasks.withType(JavaCompile) {
+    options.encoding = 'Cp1252'
+}
+
+// Configuraci?n espec?fica para el plugin 'war'
+war {
+    archiveFileName = "$buildDir/target/LanzadorWSMasivo.war" // Cambia esto por el nombre que desees para tu archivo WAR
+
+    // Agrega todos los archivos WSDL
+    from('wsdl') {
+        include '**/*.wsdl'
+        into 'WEB-INF/classes'
+    }
+
+    // Agrega archivo HandleChange.xml
+    from('src/stpa/services') {
+        include '**/*.xml'
+        into 'WEB-INF/classes/stpa/services'
+    }
+
+    //Agrega archivo commons-logging.properties
+    from('webcontent/WEB-INF/classes') {
+        include '**/*.properties'
+        into 'WEB-INF/classes'
+    }
+
+    // Agrega carpeta configuracion del src
+    from('src/com/stpa/ws/server/configuracion') {
+        into 'WEB-INF/classes/com/stpa/ws/server/configuracion'
+    }
+
+    // Agrega carpeta jaxws del src
+    from('src/com/stpa/ws/server/jaxws') {
+        into 'WEB-INF/classes/com/stpa/ws/server/jaxws'
+    }
+
+    // Agrega carpeta img
+    from('webcontent/img') {
+        into 'img'
+    }
+
+    // Agrega carpeta xml
+    from('webcontent/xml') {
+        into 'xml'
+    }
+
+    // Agrega carpeta xsl
+    from('webcontent/xsl') {
+        into 'xsl'
+    }
+
+    // Agrega solo los archivos XML de la carpeta WEB-INF
+    webInf {
+        from 'webcontent/WEB-INF', {
+            include '*.xml'
+            include '*.wsdl'
+            include 'META-INF/**/*'
+
+
+
+        }
+    }
+}
+

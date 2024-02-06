@@ -1,0 +1,49 @@
+plugins {
+    id 'ear'
+    id 'java'
+    id 'war'
+}
+
+repositories {
+    jcenter()
+}
+
+// Configuración de compilación y ejecución
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Configuración específica para el plugin 'ear'
+ear {
+    // Nombre del archivo EAR
+    archiveFileName = 'STPAWS.ear'
+
+    // Agregar los archivos WAR al EAR
+    from('lanzadorWS/build/target') {
+        include '*.war'
+        into '/'
+    }
+    from('lanzadorWSMasivo/build/target') {
+        include '*.war'
+        into '/'
+    }
+
+    from('STPAWS/EarContent/META-INF') {
+        include '**.*' // Ajusta el patrón según tus necesidades
+        into ('META-INF')
+    }
+
+    // Agregar la carpeta APP-INF al EAR
+    into('APP-INF') {
+        from { file('STPAWS/EarContent/APP-INF') }
+    }
+
+    // Estrategia de manejo de duplicados para application.xml
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // O puedes usar otras estrategias según tus necesidades
+}
+
+
+
+// Tarea predeterminada: compilar y empaquetar el EAR
+task buildEar(type: Ear)
+
+// Configuración adicional si es necesaria
