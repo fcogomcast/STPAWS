@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jwshc:handler-config xmlns:jwshc="http://www.bea.com/xml/ns/jws"
+   xmlns="http://java.sun.com/xml/ns/j2ee" >
+   <jwshc:handler-chain>
+     <jwshc:handler-chain-name>ChainLanzadorMasivo</jwshc:handler-chain-name>
+     <jwshc:handler>
+       <handler-name>stpa.services.handler.ServerHandler</handler-name>
+       <handler-class>stpa.services.handler.ServerHandler</handler-class>
+     </jwshc:handler>
+   </jwshc:handler-chain>
+</jwshc:handler-config>

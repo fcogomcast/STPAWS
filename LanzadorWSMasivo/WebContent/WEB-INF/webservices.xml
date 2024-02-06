@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<webservices xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <webservice-description>
+    <webservice-description-name>stpa.services.LanzaPLMasivo</webservice-description-name>
+    <wsdl-file>WEB-INF/LanzaPLMasivo.wsdl</wsdl-file>
+    <jaxrpc-mapping-file>WEB-INF/LanzaPLMasivo.xml</jaxrpc-mapping-file>
+    <port-component>
+      <port-component-name>LanzaPLMasivoSoapPort</port-component-name>
+      <wsdl-port xmlns:ser="http://stpa/services">ser:LanzaPLMasivoSoapPort</wsdl-port>
+      <service-endpoint-interface>stpa.services.LanzaPLMasivoPortType</service-endpoint-interface>
+      <service-impl-bean>
+        <servlet-link>LanzaPLMasivoServlethttp</servlet-link>
+      </service-impl-bean>
+      <handler>
+        <handler-name>stpa.services.handler.ServerHandler</handler-name>
+        <handler-class>stpa.services.handler.ServerHandler</handler-class>
+      </handler>
+    </port-component>
+  </webservice-description>
+</webservices>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<j2ee:java-wsdl-mapping xmlns:j2ee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <j2ee:package-mapping>
+    <j2ee:package-type>stpa.services</j2ee:package-type>
+    <j2ee:namespaceURI>http://stpa/services</j2ee:namespaceURI>
+  </j2ee:package-mapping>
+  <j2ee:service-interface-mapping>
+    <j2ee:service-interface>javax.xml.rpc.Service</j2ee:service-interface>
+    <j2ee:wsdl-service-name xmlns:ser="http://stpa/services">ser:lanzaPL</j2ee:wsdl-service-name>
+    <j2ee:port-mapping>
+      <j2ee:port-name>lanzaPLSoapPort</j2ee:port-name>
+      <j2ee:java-port-name>getlanzaPLSoapPort</j2ee:java-port-name>
+    </j2ee:port-mapping>
+  </j2ee:service-interface-mapping>
+  <j2ee:service-endpoint-interface-mapping>
+    <j2ee:service-endpoint-interface>stpa.services.lanzaPLPortType</j2ee:service-endpoint-interface>
+    <j2ee:wsdl-port-type xmlns:ser="http://stpa/services">ser:lanzaPL</j2ee:wsdl-port-type>
+    <j2ee:wsdl-binding xmlns:ser="http://stpa/services">ser:lanzaPLSoapBinding</j2ee:wsdl-binding>
+    <j2ee:service-endpoint-method-mapping>
+      <j2ee:java-method-name>executePL</j2ee:java-method-name>
+      <j2ee:wsdl-operation>executePL</j2ee:wsdl-operation>
+      <j2ee:wrapped-element></j2ee:wrapped-element>
+      <j2ee:method-param-parts-mapping>
+        <j2ee:param-position>0</j2ee:param-position>
+        <j2ee:param-type>java.lang.String</j2ee:param-type>
+        <j2ee:wsdl-message-mapping>
+          <j2ee:wsdl-message xmlns:ser="http://stpa/services">ser:executePL</j2ee:wsdl-message>
+          <j2ee:wsdl-message-part-name>esquema</j2ee:wsdl-message-part-name>
+          <j2ee:parameter-mode>IN</j2ee:parameter-mode>
+        </j2ee:wsdl-message-mapping>
+      </j2ee:method-param-parts-mapping>
+      <j2ee:method-param-parts-mapping>
+        <j2ee:param-position>1</j2ee:param-position>
+        <j2ee:param-type>java.lang.String</j2ee:param-type>
+        <j2ee:wsdl-message-mapping>
+          <j2ee:wsdl-message xmlns:ser="http://stpa/services">ser:executePL</j2ee:wsdl-message>
+          <j2ee:wsdl-message-part-name>peticion</j2ee:wsdl-message-part-name>
+          <j2ee:parameter-mode>IN</j2ee:parameter-mode>
+        </j2ee:wsdl-message-mapping>
+      </j2ee:method-param-parts-mapping>
+      <j2ee:method-param-parts-mapping>
+        <j2ee:param-position>2</j2ee:param-position>
+        <j2ee:param-type>java.lang.String</j2ee:param-type>
+        <j2ee:wsdl-message-mapping>
+          <j2ee:wsdl-message xmlns:ser="http://stpa/services">ser:executePL</j2ee:wsdl-message>
+          <j2ee:wsdl-message-part-name>IP</j2ee:wsdl-message-part-name>
+          <j2ee:parameter-mode>IN</j2ee:parameter-mode>
+        </j2ee:wsdl-message-mapping>
+      </j2ee:method-param-parts-mapping>
+      <j2ee:method-param-parts-mapping>
+        <j2ee:param-position>3</j2ee:param-position>
+        <j2ee:param-type>java.lang.String</j2ee:param-type>
+        <j2ee:wsdl-message-mapping>
+          <j2ee:wsdl-message xmlns:ser="http://stpa/services">ser:executePL</j2ee:wsdl-message>
+          <j2ee:wsdl-message-part-name>NIF</j2ee:wsdl-message-part-name>
+          <j2ee:parameter-mode>IN</j2ee:parameter-mode>
+        </j2ee:wsdl-message-mapping>
+      </j2ee:method-param-parts-mapping>
+      <j2ee:method-param-parts-mapping>
+        <j2ee:param-position>4</j2ee:param-position>
+        <j2ee:param-type>java.lang.String</j2ee:param-type>
+        <j2ee:wsdl-message-mapping>
+          <j2ee:wsdl-message xmlns:ser="http://stpa/services">ser:executePL</j2ee:wsdl-message>
+          <j2ee:wsdl-message-part-name>nombre</j2ee:wsdl-message-part-name>
+          <j2ee:parameter-mode>IN</j2ee:parameter-mode>
+        </j2ee:wsdl-message-mapping>
+      </j2ee:method-param-parts-mapping>
+      <j2ee:method-param-parts-mapping>
+        <j2ee:param-position>5</j2ee:param-position>
+        <j2ee:param-type>java.lang.String</j2ee:param-type>
+        <j2ee:wsdl-message-mapping>
+          <j2ee:wsdl-message xmlns:ser="http://stpa/services">ser:executePL</j2ee:wsdl-message>
+          <j2ee:wsdl-message-part-name>certificado</j2ee:wsdl-message-part-name>
+          <j2ee:parameter-mode>IN</j2ee:parameter-mode>
+        </j2ee:wsdl-message-mapping>
+      </j2ee:method-param-parts-mapping>
+      <j2ee:wsdl-return-value-mapping>
+        <j2ee:method-return-value>java.lang.String</j2ee:method-return-value>
+        <j2ee:wsdl-message xmlns:ser="http://stpa/services">ser:executePLResponse</j2ee:wsdl-message>
+        <j2ee:wsdl-message-part-name>return</j2ee:wsdl-message-part-name>
+      </j2ee:wsdl-return-value-mapping>
+    </j2ee:service-endpoint-method-mapping>
+  </j2ee:service-endpoint-interface-mapping>
+</j2ee:java-wsdl-mapping>
